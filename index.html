@@ -1,0 +1,1533 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Maçã Padaria Artesanal | Curitiba</title>
+<meta name="description" content="Maçã Padaria Artesanal, em Curitiba: pães de fermentação natural, folhados, sonhos e cafés. Três unidades e delivery pelo link na bio.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@1&display=swap">
+
+<script>
+  /* ============================================================
+     TEMA — aplicado antes da pintura para evitar "piscar".
+     Ordem: escolha salva > tema do visualizador > sistema.
+     O site usa o atributo data-mode (o data-theme é do visualizador).
+     ============================================================ */
+  (function () {
+    var root = document.documentElement, saved = null;
+    try { saved = localStorage.getItem('maca-tema'); } catch (e) {}
+    var host = root.getAttribute('data-theme');
+    var sys = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-mode', saved || (host === 'dark' || host === 'light' ? host : sys));
+  })();
+</script>
+
+<style>
+/* ============================================================
+   1. TOKENS DE COR
+   Claro = padrão. Escuro tem identidade própria (padaria à noite).
+   ============================================================ */
+:root {
+  --cream: #FEF9E5;          /* creme da marca, constante */
+  --brand-red: #ED1F29;      /* vermelho Maçã, constante */
+  --brand-wine: #8C1A22;     /* vinho das peças de delivery */
+  --gold: #E3A13B;
+
+  --bg: #FEF9E5;
+  --bg-2: #F7EDCF;
+  --surface: #FFFCF1;
+  --ink: #231F20;
+  --ink-2: #322B28;
+  --muted: #6B5C54;
+  --line: rgba(50, 43, 40, .14);
+  --red: #ED1F29;
+  --red-text: #C8131C;       /* vermelho para texto pequeno sobre creme */
+  --pink: #FFB4B1;
+  --pink-bg: #FFB4B1;
+  --pink-ink: #3A1416;
+  --pink-chip: #FFD7D4;
+  --band: #322B28;           /* seção da fermentação */
+  --band-ink: #FEF9E5;
+  --band-muted: #CDBFAF;
+  --header-bg: rgba(254, 249, 229, .82);
+  --shadow: 0 18px 40px -22px rgba(90, 30, 15, .35);
+  --toggle-bg: #FFE3C4;
+  color-scheme: light;
+}
+/* Escuro sem JS (segue o sistema) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode]) {
+    --bg: #201918; --bg-2: #271E1B; --surface: #302622; --ink: #FEF9E5; --ink-2: #EFE4CF;
+    --muted: #BFAE9E; --line: rgba(254, 249, 229, .12); --red: #ED1F29; --red-text: #FF5E63;
+    --pink-bg: #4A2427; --pink-ink: #FFE6E3; --pink-chip: #6A3236; --band: #151010;
+    --band-ink: #FEF9E5; --band-muted: #BFAE9E; --header-bg: rgba(32, 25, 24, .8);
+    --shadow: 0 18px 40px -22px rgba(0, 0, 0, .7); --toggle-bg: #302622;
+    color-scheme: dark;
+  }
+}
+/* Escuro escolhido no botão */
+:root[data-mode="dark"] {
+  --bg: #201918; --bg-2: #271E1B; --surface: #302622; --ink: #FEF9E5; --ink-2: #EFE4CF;
+  --muted: #BFAE9E; --line: rgba(254, 249, 229, .12); --red: #ED1F29; --red-text: #FF5E63;
+  --pink-bg: #4A2427; --pink-ink: #FFE6E3; --pink-chip: #6A3236; --band: #151010;
+  --band-ink: #FEF9E5; --band-muted: #BFAE9E; --header-bg: rgba(32, 25, 24, .8);
+  --shadow: 0 18px 40px -22px rgba(0, 0, 0, .7); --toggle-bg: #302622;
+  color-scheme: dark;
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+:root {
+  --f-display: "Baloo 2", "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif;
+  --f-accent: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --f-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1320px;
+  --r-lg: 32px;
+  --r-md: 22px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 17px;
+  line-height: 1.6;
+  overflow-x: clip;
+  transition: background-color .45s var(--ease), color .45s var(--ease);
+}
+img, video { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 800; line-height: .98; letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+section[id], [id="cardapio"] { scroll-margin-top: 96px; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; border-radius: 8px; }
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.accent { font-family: var(--f-accent); font-style: italic; font-weight: 400; letter-spacing: -.01em; color: var(--red-text); }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+}
+.eyebrow .apple { width: 14px; height: 14px; color: var(--red); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Botões */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 26px; border-radius: 999px; border: 2px solid transparent;
+  font-weight: 700; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; text-decoration: none;
+  transition: transform .25s var(--ease), background-color .25s, color .25s, border-color .25s;
+}
+.btn svg, .btn i { width: 18px; height: 18px; transition: transform .25s var(--ease); }
+.btn:hover { transform: translateY(-2px); }
+.btn:hover svg:last-child { transform: translateX(3px); }
+.btn-red { background: var(--brand-red); color: var(--cream); }
+.btn-red:hover { background: #D3141D; }
+.btn-line { border-color: currentColor; background: transparent; }
+.btn-line:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn-cream { background: var(--cream); color: #8C1A22; }
+.btn-cream:hover { background: #fff; }
+.btn-line-cream { border-color: var(--cream); color: var(--cream); }
+.btn-line-cream:hover { background: var(--cream); color: #8C1A22; }
+
+/* Logo em duas versões — branca no claro, vermelha no escuro */
+.logo { display: inline-block; border-radius: 14px; overflow: hidden; flex: none; line-height: 0; }
+.logo img { width: 100%; height: 100%; object-fit: cover; }
+.logo .logo-dark { display: none; }
+:root[data-mode="dark"] .logo .logo-light { display: none; }
+:root[data-mode="dark"] .logo .logo-dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode]) .logo .logo-light { display: none; }
+  :root:not([data-mode]) .logo .logo-dark { display: block; }
+}
+
+/* ============================================================
+   3. HEADER
+   ============================================================ */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  padding-top: env(safe-area-inset-top, 0px);
+  transition: background-color .35s, box-shadow .35s, backdrop-filter .35s;
+}
+.site-header .bar {
+  display: flex; align-items: center; gap: 28px;
+  height: 92px; transition: height .35s var(--ease);
+}
+.site-header.scrolled {
+  background: var(--header-bg);
+  backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: 0 1px 0 var(--line);
+}
+.site-header.scrolled .bar { height: 70px; }
+.site-header .logo { width: 58px; height: 58px; transition: width .35s var(--ease), height .35s var(--ease); }
+.site-header.scrolled .logo { width: 46px; height: 46px; border-radius: 12px; }
+.main-nav { display: flex; gap: 26px; margin-left: 12px; }
+.main-nav a {
+  position: relative; text-decoration: none; font-weight: 500; font-size: 15.5px; padding: 6px 0;
+}
+.main-nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 2px;
+  background: var(--red); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease);
+}
+.main-nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+.header-actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.icon-btn {
+  width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+  border: 1.5px solid var(--line); background: transparent; text-decoration: none;
+  transition: background-color .25s, border-color .25s, transform .25s var(--ease);
+}
+.icon-btn:hover { border-color: var(--ink); transform: translateY(-2px); }
+.icon-btn svg { width: 20px; height: 20px; }
+.header-actions .btn { min-height: 46px; padding: 0 20px; font-size: 13.5px; }
+.menu-btn { display: none; }
+
+/* Botão de tema: croissant dourado que vira lua */
+.theme-toggle {
+  width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid var(--line);
+  background: var(--toggle-bg); display: grid; place-items: center; position: relative; overflow: hidden;
+  transition: background-color .45s, transform .25s var(--ease);
+}
+.theme-toggle:hover { transform: rotate(-8deg) scale(1.04); }
+.theme-toggle svg { width: 38px; height: 38px; overflow: visible; }
+.theme-toggle .cro { transform-origin: 24px 26px; transition: transform .7s var(--ease); }
+.theme-toggle .cro ellipse { fill: var(--gold); stroke: #A8651B; stroke-width: 1.4; transition: fill .6s, stroke .6s; }
+.theme-toggle .shine { fill: #FFE6A6; transition: opacity .4s; }
+.theme-toggle .star { fill: var(--cream); opacity: 0; transform-origin: center; transform-box: fill-box; transform: scale(.3); transition: opacity .4s .2s, transform .5s .2s var(--ease); }
+:root[data-mode="dark"] .theme-toggle .cro { transform: rotate(-38deg) translate(2px, 3px) scale(.92); }
+:root[data-mode="dark"] .theme-toggle .cro ellipse { fill: #F4E7C0; stroke: #BFA878; }
+:root[data-mode="dark"] .theme-toggle .shine { opacity: 0; }
+:root[data-mode="dark"] .theme-toggle .star { opacity: 1; transform: scale(1); }
+.theme-toggle.flip svg { animation: flip .7s var(--ease); }
+@keyframes flip { 0% { transform: rotate(0) } 45% { transform: rotate(-200deg) scale(.7) } 100% { transform: rotate(-360deg) } }
+
+/* Menu mobile */
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 60; background: var(--brand-red); color: var(--cream);
+  display: flex; flex-direction: column;
+  padding: calc(env(safe-area-inset-top, 0px) + 22px) var(--gutter) calc(env(safe-area-inset-bottom, 0px) + 28px);
+  clip-path: circle(0 at calc(100% - 44px) 44px); visibility: hidden;
+  transition: clip-path .6s var(--ease), visibility 0s .6s;
+}
+.mobile-menu.open { clip-path: circle(150% at calc(100% - 44px) 44px); visibility: visible; transition: clip-path .6s var(--ease), visibility 0s; }
+.mobile-menu .top { display: flex; justify-content: space-between; align-items: center; }
+.mobile-menu .close { border-color: rgba(254,249,229,.4); color: var(--cream); }
+.mobile-menu nav { display: flex; flex-direction: column; margin-top: 36px; }
+.mobile-menu nav a {
+  font-family: var(--f-display); font-weight: 800; font-size: 44px; line-height: 1.1;
+  text-decoration: none; padding: 8px 0; border-bottom: 1px solid rgba(254,249,229,.22);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.mobile-menu nav a span { font-family: var(--f-body); font-size: 13px; font-weight: 700; letter-spacing: .14em; opacity: .7; }
+.mobile-menu .foot { margin-top: auto; display: grid; gap: 12px; }
+.mobile-menu .foot .btn { width: 100%; }
+
+/* ============================================================
+   4. HERO
+   ============================================================ */
+.hero { position: relative; padding-top: 128px; padding-bottom: 72px; overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.02fr 1fr; gap: clamp(28px, 4vw, 64px); align-items: center; min-height: min(78vh, 760px); }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px 9px 12px; border-radius: 999px;
+  border: 1.5px solid var(--line); background: var(--surface);
+}
+.hero h1 { font-size: clamp(50px, 6.8vw, 104px); margin-top: 26px; }
+.hero h1 .accent { font-size: 1.08em; position: relative; display: inline-block; padding: 0 .06em; }
+.hero h1 .circle {
+  position: absolute; left: -12%; top: -8%; width: 124%; height: 122%; pointer-events: none; overflow: visible;
+}
+.hero h1 .circle ellipse { fill: none; stroke: var(--red); stroke-width: 2.4; stroke-dasharray: 700; stroke-dashoffset: 0; animation: draw 1.6s .4s var(--ease) both; }
+@keyframes draw { from { stroke-dashoffset: 700; } to { stroke-dashoffset: 0; } }
+.hero-lead { max-width: 33em; margin-top: 26px; font-size: clamp(17px, 1.3vw, 19px); color: var(--ink-2); }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.hero-rating { display: flex; align-items: center; gap: 14px; margin-top: 34px; }
+.hero-rating .stars { color: var(--red); letter-spacing: 2px; font-size: 18px; }
+.hero-rating strong { font-family: var(--f-display); font-size: 30px; line-height: 1; }
+.hero-rating small { display: block; color: var(--muted); font-size: 14px; line-height: 1.3; }
+.hero-rating .sep { width: 1px; height: 36px; background: var(--line); }
+
+.hero-art { position: relative; aspect-ratio: 1 / 1.05; max-width: 620px; width: 100%; justify-self: end; }
+.hero-art .blob-red {
+  position: absolute; inset: 6% 2% 4% 8%; background: var(--brand-red);
+  border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%;
+  animation: morph 16s ease-in-out infinite alternate;
+}
+.hero-art .blob-pink { position: absolute; width: 36%; aspect-ratio: 1; right: -4%; top: -2%; background: var(--pink); border-radius: 50% 50% 46% 54% / 60% 40% 60% 40%; }
+.hero-art .blob-cream { position: absolute; width: 26%; aspect-ratio: 1; left: 0; bottom: 6%; background: var(--bg-2); border-radius: 50%; border: 1.5px solid var(--line); }
+@keyframes morph {
+  0% { border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%; }
+  100% { border-radius: 44% 56% 44% 56% / 56% 44% 58% 42%; }
+}
+.hero-photo {
+  position: absolute; left: 21%; right: 14%; top: 11%; bottom: 10%;
+  border-radius: 999px 999px 38px 38px; overflow: hidden; border: 6px solid var(--cream);
+  box-shadow: var(--shadow);
+}
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; transform: scale(1.06); }
+.float-chip {
+  position: absolute; display: flex; align-items: center; gap: 10px; padding: 11px 16px 11px 12px;
+  background: var(--surface); color: var(--ink); border-radius: 18px; box-shadow: var(--shadow);
+  font-weight: 700; font-size: 14px; line-height: 1.2; white-space: nowrap;
+  animation: bob 6s ease-in-out infinite;
+}
+.float-chip .dot { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--pink); color: #7A1016; flex: none; }
+.float-chip .dot svg { width: 16px; height: 16px; }
+.chip-1 { left: 0; top: 22%; }
+.chip-2 { right: -2%; top: 46%; animation-delay: -2s; }
+.chip-3 { left: 8%; bottom: 3%; animation-delay: -4s; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+.mini-apple { position: absolute; width: 54px; right: 10%; top: 4%; color: var(--brand-red); animation: sway 7s ease-in-out infinite; }
+@keyframes sway { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(10deg); } }
+.stamp { position: absolute; width: 118px; height: 118px; right: 4%; bottom: 2%; color: var(--cream); }
+.stamp .ring { animation: spin 22s linear infinite; transform-origin: 50% 50%; }
+.stamp text { font: 700 10.5px var(--f-body); letter-spacing: .26em; fill: currentColor; text-transform: uppercase; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   5. MARQUEE
+   ============================================================ */
+.marquee-clip { overflow: hidden; padding-block: 16px; position: relative; z-index: 2; }
+.marquee { background: var(--brand-red); color: var(--cream); overflow: hidden; padding: 18px 0; transform: rotate(-1.2deg); width: 104%; margin-left: -2%; }
+.marquee-track { display: flex; width: max-content; animation: slide 38s linear infinite; }
+.marquee-group { display: flex; align-items: center; }
+.marquee span { font-family: var(--f-display); font-weight: 800; font-size: clamp(22px, 2.4vw, 32px); letter-spacing: .02em; text-transform: uppercase; padding: 0 22px; white-space: nowrap; }
+.marquee svg { width: 26px; height: 26px; color: var(--pink); flex: none; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ============================================================
+   6. FAVORITOS / CARDÁPIO
+   ============================================================ */
+.favs { padding: clamp(84px, 10vw, 140px) 0 clamp(72px, 8vw, 110px); }
+.favs-head { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: end; }
+.favs-head h2 { font-size: clamp(44px, 6vw, 88px); }
+.favs-head p { color: var(--ink-2); font-size: 19px; max-width: 26em; justify-self: end; }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 44px; }
+.filter {
+  min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1.5px solid var(--line);
+  background: var(--surface); font-weight: 700; font-size: 15px;
+  transition: background-color .25s, color .25s, border-color .25s, transform .25s var(--ease);
+}
+.filter:hover { border-color: var(--ink); transform: translateY(-2px); }
+.filter[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.filter .count { font-size: 12px; opacity: .6; margin-left: 4px; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 30px; }
+.card {
+  position: relative; background: var(--surface); border-radius: var(--r-lg); overflow: hidden;
+  display: flex; flex-direction: column; border: 1.5px solid var(--line);
+  transition: transform .35s var(--ease), opacity .3s, box-shadow .35s;
+}
+.card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.card.is-hiding { opacity: 0; transform: scale(.95); }
+.card.is-entering { opacity: 0; transform: translateY(14px); }
+.card .media { position: relative; aspect-ratio: 4 / 3.4; overflow: hidden; background: var(--bg-2); }
+.card .media img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.card:hover .media img { transform: scale(1.04); }
+.card .body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.card .cat { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.card h3 { font-size: 30px; line-height: 1.02; letter-spacing: -.01em; }
+.card .desc { color: var(--ink-2); font-size: 15.5px; line-height: 1.5; }
+.card .foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 14px; }
+.price { font-family: var(--f-display); font-weight: 800; font-size: 26px; line-height: 1; font-variant-numeric: tabular-nums; }
+.price small { font-family: var(--f-body); font-size: 13px; font-weight: 700; margin-right: 2px; }
+.price.na { font-family: var(--f-body); font-weight: 500; font-size: 14px; color: var(--muted); }
+.add {
+  width: 50px; height: 50px; border-radius: 50%; border: none; background: var(--brand-red); color: var(--cream);
+  display: grid; place-items: center; transition: transform .35s var(--ease), width .35s var(--ease), border-radius .35s;
+}
+.add svg { width: 22px; height: 22px; transition: transform .35s var(--ease); }
+.card:hover .add svg { transform: rotate(90deg); }
+.badges { position: absolute; top: 14px; left: 14px; display: flex; flex-wrap: wrap; gap: 6px; z-index: 1; }
+.badge { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: var(--cream); color: #3A1416; }
+.badge.red { background: var(--brand-red); color: var(--cream); }
+.badge.pink { background: var(--pink); color: #3A1416; }
+/* Card em destaque ocupa duas colunas */
+.card.wide { grid-column: span 2; flex-direction: row; }
+.card.wide .media { aspect-ratio: auto; flex: 1.25; min-height: 100%; }
+.card.wide .body { flex: 1; padding: 30px; justify-content: center; }
+.card.wide h3 { font-size: 44px; }
+.grid.filtered .card.wide { grid-column: auto; flex-direction: column; }
+.grid.filtered .card.wide .media { aspect-ratio: 4 / 3.4; flex: none; min-height: 0; }
+.grid.filtered .card.wide .body { padding: 20px 22px 22px; justify-content: flex-start; }
+.grid.filtered .card.wide h3 { font-size: 30px; }
+/* Selo redondo de preço no destaque */
+.sticker {
+  position: absolute; right: 18px; bottom: 18px; width: 96px; height: 96px; border-radius: 50%;
+  background: var(--brand-red); color: var(--cream); display: grid; place-items: center; text-align: center;
+  font-family: var(--f-display); font-weight: 800; line-height: .9; transform: rotate(-10deg); font-size: 26px;
+}
+.sticker small { display: block; font-family: var(--f-body); font-size: 10px; letter-spacing: .14em; font-weight: 700; }
+/* Cards ilustrados (produtos sem foto) */
+.media.illus { display: grid; place-items: center; }
+.media.illus.on-red { background: var(--brand-red); }
+.media.illus.on-pink { background: var(--pink); }
+.media.illus svg { width: 78%; height: auto; }
+.media.illus .note { position: absolute; bottom: 14px; right: 16px; font-family: var(--f-accent); font-style: italic; font-size: 18px; color: var(--cream); opacity: .9; }
+.media.illus.on-pink .note { color: #7A1016; }
+.grid-note { margin-top: 22px; color: var(--muted); font-size: 14px; }
+
+/* ============================================================
+   7. SONHO (fundo rosa)
+   ============================================================ */
+.sonho { background: var(--pink-bg); color: var(--pink-ink); padding: clamp(80px, 9vw, 130px) 0; position: relative; overflow: hidden; border-radius: 56px 56px 0 0; }
+.sonho .wrap { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+.sonho h2 { font-size: clamp(54px, 7.4vw, 118px); }
+.sonho h2 .accent { color: var(--red-text); }
+:root[data-mode="dark"] .sonho h2 .accent { color: #FF8C8C; }
+.sonho p.lead { font-size: 19px; margin-top: 24px; max-width: 30em; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.tag {
+  min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid currentColor; background: transparent;
+  font-weight: 700; font-size: 15px; transition: background-color .25s, color .25s, transform .25s var(--ease);
+}
+.tag:hover { transform: translateY(-2px); }
+.tag[aria-pressed="true"] { background: var(--pink-ink); color: var(--pink-bg); border-color: var(--pink-ink); }
+.tag-info { margin-top: 16px; min-height: 28px; font-weight: 500; font-size: 16px; display: flex; gap: 10px; align-items: baseline; }
+.tag-info strong { font-family: var(--f-display); font-size: 24px; }
+.sonho .btn { margin-top: 26px; }
+.sonho-media { position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: end; }
+.sonho-media .photo { border-radius: 999px 999px 32px 32px; overflow: hidden; aspect-ratio: 3/4; border: 6px solid var(--cream); }
+.sonho-media .photo img { width: 100%; height: 100%; object-fit: cover; }
+.video-frame { position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 9/16; background: #2a1a18; border: 6px solid var(--cream); transform: rotate(3deg) translateY(-12%); box-shadow: var(--shadow); }
+.video-frame video { width: 100%; height: 100%; object-fit: cover; }
+.video-toggle {
+  position: absolute; left: 10px; bottom: 10px; width: 40px; height: 40px; border-radius: 50%; border: none;
+  background: rgba(35, 31, 32, .6); color: var(--cream); display: grid; place-items: center; backdrop-filter: blur(6px);
+}
+.video-toggle svg { width: 16px; height: 16px; }
+.video-label { position: absolute; top: 12px; left: 12px; background: var(--cream); color: #3A1416; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; }
+.sonho .scribble { position: absolute; left: -16px; bottom: -34px; width: 150px; color: var(--pink-ink); opacity: .75; transform: rotate(-8deg); }
+
+/* ============================================================
+   8. VITRINE (galeria)
+   ============================================================ */
+.vitrine { padding: clamp(80px, 9vw, 120px) 0; }
+.vitrine-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.vitrine-head h2 { font-size: clamp(40px, 5vw, 72px); }
+.vitrine-head p { color: var(--muted); max-width: 24em; }
+.mosaic { display: grid; grid-template-columns: 1.1fr .9fr .9fr 1.1fr; grid-template-rows: 280px 280px; gap: 16px; margin-top: 40px; }
+.mosaic figure { margin: 0; position: relative; border-radius: var(--r-md); overflow: hidden; background: var(--bg-2); }
+.mosaic img, .mosaic video { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+.mosaic figure:hover img { transform: scale(1.03); }
+.mosaic figcaption { position: absolute; left: 12px; bottom: 12px; background: var(--cream); color: #3A1416; font-size: 12.5px; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
+.m-a { grid-row: span 2; }
+.m-b { grid-column: span 2; }
+.m-e { grid-row: span 2; grid-column: 4; grid-row-start: 1; border-radius: 999px 999px var(--r-md) var(--r-md) !important; }
+.m-c, .m-d { }
+
+/* ============================================================
+   9. FERMENTAÇÃO
+   ============================================================ */
+.ferment { background: var(--band); color: var(--band-ink); padding: clamp(84px, 10vw, 140px) 0; position: relative; overflow: hidden; }
+.ferment .wrap { position: relative; }
+.ferment-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; }
+.ferment h2 { font-size: clamp(46px, 6vw, 90px); }
+.ferment h2 .accent { color: var(--pink); }
+.ferment .intro { color: var(--band-muted); font-size: 19px; max-width: 30em; }
+.slow-word {
+  font-family: var(--f-display); font-weight: 800; font-size: clamp(88px, 17vw, 260px); line-height: .8; letter-spacing: -.04em;
+  color: transparent; -webkit-text-stroke: 2px rgba(254, 249, 229, .28); margin: 48px 0 8px; white-space: nowrap;
+  display: flex; align-items: baseline; gap: .15em;
+}
+.slow-word em { font-family: var(--f-accent); font-weight: 400; font-size: .3em; -webkit-text-stroke: 0; color: var(--pink); letter-spacing: 0; white-space: normal; line-height: 1.1; max-width: 9em; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid rgba(254,249,229,.18); margin-top: 28px; }
+.step { padding: 28px 24px 8px 0; border-right: 1px solid rgba(254,249,229,.12); }
+.step + .step { padding-left: 24px; }
+.step:last-child { border-right: none; }
+.step .n { font-family: var(--f-display); font-size: 17px; font-weight: 700; color: var(--pink); }
+.step h3 { font-size: 28px; margin-top: 10px; line-height: 1.02; }
+.step p { color: var(--band-muted); font-size: 15px; margin-top: 10px; }
+.wheat { position: absolute; right: var(--gutter); top: -30px; width: 90px; color: var(--pink); opacity: .7; }
+
+/* ============================================================
+   10. MOMENTOS
+   ============================================================ */
+.moments { padding: clamp(84px, 10vw, 140px) 0; }
+.moments h2 { font-size: clamp(44px, 5.6vw, 84px); max-width: 12em; }
+.moments-grid { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 20px; margin-top: 44px; align-items: stretch; }
+.moment { position: relative; border-radius: var(--r-lg); overflow: hidden; min-height: 520px; color: var(--cream); display: flex; align-items: flex-end; text-decoration: none; isolation: isolate; }
+.moment img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .8s var(--ease); }
+.moment::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(35,20,18,0) 38%, rgba(35,20,18,.82) 100%); }
+.moment:hover img { transform: scale(1.04); }
+.moment .txt { padding: 26px; }
+.moment .when { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; background: var(--brand-red); }
+.moment h3 { font-size: clamp(28px, 2.6vw, 38px); margin-top: 14px; line-height: 1.02; }
+.moment:nth-child(2) { margin-top: 48px; }
+.moment:nth-child(2) .when { background: var(--pink); color: #3A1416; }
+.moment:nth-child(3) .when { background: var(--cream); color: #3A1416; }
+
+/* ============================================================
+   11. DELIVERY
+   ============================================================ */
+.delivery { background: var(--brand-wine); color: var(--cream); padding: clamp(84px, 10vw, 130px) 0; overflow: hidden; border-radius: 56px; margin-inline: clamp(0px, 1.2vw, 18px); }
+.delivery .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+.pediu { font-family: var(--f-body); font-weight: 500; font-size: clamp(26px, 2.8vw, 38px); letter-spacing: .02em; text-transform: uppercase; line-height: 1; }
+.pediu div { padding: 14px 0; border-bottom: 1.5px solid rgba(254,249,229,.7); width: fit-content; min-width: 7.5em; }
+.pediu .last { border: none; display: flex; align-items: center; gap: 28px; }
+.pediu .oval { position: relative; font-family: var(--f-display); font-weight: 800; font-size: 1.5em; padding: 0 .3em; }
+.pediu .oval svg { position: absolute; inset: -40% -18%; width: 136%; height: 180%; overflow: visible; }
+.pediu .oval ellipse { fill: none; stroke: var(--cream); stroke-width: 1.6; }
+.delivery p.lead { margin-top: 30px; font-size: 19px; max-width: 26em; color: rgba(254,249,229,.86); }
+.delivery .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.posters { position: relative; height: 560px; }
+.poster { position: absolute; width: 50%; aspect-ratio: 646/828; border-radius: 18px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6); transition: transform .5s var(--ease); }
+.poster img { width: 100%; height: 100%; object-fit: cover; }
+.poster.p1 { left: 0; top: 60px; transform: rotate(-7deg); }
+.poster.p2 { left: 26%; top: 0; z-index: 2; transform: rotate(2deg); }
+.poster.p3 { right: 0; top: 90px; transform: rotate(8deg); }
+.posters:hover .p1 { transform: rotate(-10deg) translateX(-12px); }
+.posters:hover .p3 { transform: rotate(11deg) translateX(12px); }
+
+/* ============================================================
+   12. AVALIAÇÕES
+   ============================================================ */
+.reviews { padding: clamp(84px, 10vw, 140px) 0 clamp(60px, 7vw, 100px); }
+.reviews .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.reviews h2 { font-size: clamp(42px, 5vw, 76px); }
+.score { display: flex; align-items: center; gap: 18px; margin-top: 32px; }
+.score .big { font-family: var(--f-display); font-weight: 800; font-size: 96px; line-height: .8; color: var(--red-text); }
+.score .stars { color: var(--red); font-size: 20px; letter-spacing: 3px; }
+.score small { display: block; color: var(--muted); font-size: 14.5px; line-height: 1.35; }
+.carousel-ctrl { display: flex; gap: 10px; margin-top: 30px; align-items: center; }
+.carousel-ctrl .icon-btn { width: 54px; height: 54px; }
+.dots { display: flex; gap: 8px; margin-left: 10px; }
+.dots button { width: 10px; height: 10px; border-radius: 999px; border: none; padding: 0; background: var(--line); transition: width .3s var(--ease), background-color .3s; }
+.dots button[aria-current="true"] { width: 28px; background: var(--red); }
+.track { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 2px 12px; -webkit-overflow-scrolling: touch; }
+.track::-webkit-scrollbar { display: none; }
+.review {
+  scroll-snap-align: start; flex: 0 0 min(430px, 82%); background: var(--surface); border: 1.5px solid var(--line);
+  border-radius: 30px; padding: 32px; display: flex; flex-direction: column; gap: 18px; min-height: 290px; position: relative;
+}
+.review:nth-child(even) { background: var(--pink-bg); color: var(--pink-ink); border-color: transparent; }
+.review .stars { color: var(--red); letter-spacing: 3px; }
+.review:nth-child(even) .stars { color: var(--red-text); }
+:root[data-mode="dark"] .review:nth-child(even) .stars { color: #FF8C8C; }
+.review blockquote { margin: 0; font-family: var(--f-accent); font-style: italic; font-size: clamp(26px, 2.4vw, 32px); line-height: 1.15; }
+.review .who { margin-top: auto; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.review .who span { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--brand-red); color: var(--cream); font-family: var(--f-display); }
+.review .q { position: absolute; right: 24px; top: 8px; font-family: var(--f-accent); font-size: 110px; line-height: 1; opacity: .12; }
+
+/* ============================================================
+   13. SOBRE
+   ============================================================ */
+.about { padding: clamp(60px, 7vw, 100px) 0 clamp(84px, 10vw, 140px); }
+.about .wrap { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+.about-photo { position: relative; }
+.about-photo .frame { border-radius: 32px 32px 999px 999px; overflow: hidden; aspect-ratio: 4/4.6; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+.about-photo .tagline { position: absolute; right: -22px; top: 36px; background: var(--brand-red); color: var(--cream); padding: 14px 18px; border-radius: 18px; transform: rotate(5deg); font-family: var(--f-display); font-weight: 800; font-size: 20px; line-height: 1.05; box-shadow: var(--shadow); }
+.about h2 { font-size: clamp(42px, 5.2vw, 80px); margin-top: 18px; }
+.about p { margin-top: 22px; font-size: 19px; color: var(--ink-2); max-width: 32em; }
+.facts { list-style: none; padding: 0; margin: 30px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.facts li { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; background: var(--bg-2); font-weight: 500; font-size: 15px; }
+.facts li svg { width: 14px; height: 14px; color: var(--red); }
+
+/* ============================================================
+   14. UNIDADES + SERVIÇOS
+   ============================================================ */
+.units { padding: clamp(84px, 10vw, 130px) 0; background: var(--bg-2); border-radius: 56px 56px 0 0; }
+.units-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+.units h2 { font-size: clamp(42px, 5.4vw, 82px); max-width: 10em; }
+.units-head p { color: var(--muted); max-width: 22em; }
+.unit-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; margin-top: 44px; }
+.unit { background: var(--surface); border-radius: var(--r-lg); padding: 30px; display: flex; flex-direction: column; gap: 14px; border: 1.5px solid var(--line); transition: transform .35s var(--ease), box-shadow .35s; }
+.unit:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.unit .num { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.unit .num svg { width: 34px; height: 34px; color: var(--red); }
+.unit h3 { font-size: 40px; }
+.unit address { font-style: normal; color: var(--ink-2); line-height: 1.55; }
+.unit .phone { font-weight: 700; font-variant-numeric: tabular-nums; user-select: all; }
+.unit .ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 10px; }
+.unit .ctas .btn { min-height: 48px; padding: 0 18px; font-size: 13.5px; white-space: nowrap; }
+.unit.main { background: var(--brand-red); color: var(--cream); border-color: transparent; }
+.unit.main .num, .unit.main address { color: rgba(254,249,229,.85); }
+.unit.main .num svg { color: var(--cream); }
+.services { margin-top: 64px; display: flex; flex-wrap: wrap; gap: 12px 26px; align-items: center; padding-top: 32px; border-top: 1.5px dashed var(--line); }
+.services .label { font-family: var(--f-display); font-weight: 800; font-size: 22px; margin-right: 8px; }
+.service { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; }
+.service i, .service svg { width: 20px; height: 20px; color: var(--red-text); }
+
+/* ============================================================
+   15. CTA FINAL
+   ============================================================ */
+.cta { background: var(--brand-red); color: var(--cream); position: relative; overflow: hidden; padding: clamp(90px, 11vw, 150px) 0; }
+.cta .wrap { position: relative; z-index: 2; }
+.cta h2 { font-size: clamp(46px, 6.6vw, 104px); max-width: 11em; }
+.cta h2 .accent { color: var(--cream); }
+.cta p { font-size: 19px; margin-top: 22px; max-width: 30em; color: rgba(254,249,229,.9); }
+.cta h2, .cta p { position: relative; }
+@media (min-width: 1025px) { .cta .wrap > * { max-width: 60%; } .cta h2 { font-size: clamp(46px, 5.6vw, 92px); } }
+.cta .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.cta .blob1 { position: absolute; width: 520px; height: 520px; right: -120px; top: -140px; background: var(--pink); border-radius: 52% 48% 40% 60% / 50% 60% 40% 50%; opacity: .95; }
+.cta .blob2 { position: absolute; width: 260px; height: 260px; right: 300px; bottom: -120px; background: var(--cream); border-radius: 50%; opacity: .95; }
+.cta .cut { position: absolute; width: 440px; height: 440px; right: 40px; top: 50%; transform: translateY(-50%) rotate(-6deg); border-radius: 50%; overflow: hidden; border: 8px solid var(--cream); z-index: 1; }
+.cta .cut img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ============================================================
+   16. FOOTER
+   ============================================================ */
+.site-footer { padding: 72px 0 40px; background: var(--bg); }
+.foot-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; align-items: start; }
+.site-footer .logo { width: 96px; height: 96px; border-radius: 22px; }
+.foot-brand p { margin-top: 18px; font-weight: 500; line-height: 1.45; }
+.foot-links h4, .foot-ig h4 { font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+.foot-links ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.foot-links a { text-decoration: none; font-weight: 500; }
+.foot-links a:hover { color: var(--red-text); }
+.foot-ig a { font-family: var(--f-display); font-weight: 800; font-size: 32px; text-decoration: none; }
+.foot-ig a:hover { color: var(--red-text); }
+.foot-line { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 56px; padding-top: 24px; border-top: 1.5px solid var(--line); color: var(--muted); font-size: 14.5px; }
+.foot-line .fun { font-family: var(--f-accent); font-style: italic; font-size: 20px; color: var(--ink); }
+
+/* Barra inferior mobile */
+.mobile-bar { display: none; }
+
+/* Diálogo de produto */
+dialog.sheet { border: none; padding: 0; border-radius: 30px; width: min(520px, calc(100% - 32px)); background: var(--surface); color: var(--ink); overflow: hidden; }
+dialog.sheet::backdrop { background: rgba(35, 20, 18, .55); backdrop-filter: blur(4px); }
+dialog.sheet[open] { animation: pop .4s var(--ease); }
+@keyframes pop { from { opacity: 0; transform: translateY(20px) scale(.97); } }
+.sheet .media { aspect-ratio: 16/11; background: var(--bg-2); position: relative; }
+.sheet .media img { width: 100%; height: 100%; object-fit: cover; }
+.sheet .media.illus { display: grid; place-items: center; }
+.sheet .media.illus svg { width: 62%; }
+.sheet .close { position: absolute; top: 14px; right: 14px; background: var(--cream); color: #231F20; border: none; }
+.sheet .content { padding: 26px 28px 28px; display: grid; gap: 10px; }
+.sheet h3 { font-size: 38px; }
+.sheet .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+
+/* Revelação no scroll (só em elementos abaixo da dobra; sem JS fica tudo visível) */
+.rv-pending { opacity: 0; transform: translateY(26px); }
+.rv-in { opacity: 1; transform: none; transition: opacity .8s var(--ease), transform .8s var(--ease); }
+
+/* ============================================================
+   17. RESPONSIVO
+   ============================================================ */
+@media (max-width: 1180px) {
+  .main-nav { gap: 18px; }
+  .header-actions .ig { display: none; }
+  .cta .cut { width: 340px; height: 340px; right: -40px; }
+}
+@media (max-width: 1024px) {
+  .main-nav, .header-actions .order { display: none; }
+  .menu-btn { display: grid; }
+  .hero .wrap { grid-template-columns: 1fr; min-height: 0; }
+  .hero-art { justify-self: center; max-width: 560px; }
+  .favs-head, .ferment-top, .delivery .wrap, .reviews .wrap, .about .wrap, .sonho .wrap { grid-template-columns: 1fr; }
+  .favs-head p { justify-self: start; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .step:nth-child(2) { border-right: none; }
+  .step:nth-child(3) { padding-left: 0; }
+  .moments-grid { grid-template-columns: 1fr 1fr; }
+  .moment:first-child { grid-column: span 2; min-height: 440px; }
+  .moment:nth-child(2) { margin-top: 0; }
+  .unit-grid { grid-template-columns: 1fr 1fr; }
+  .unit.main { grid-column: span 2; }
+  .mosaic { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 240px 240px 240px; }
+  .m-a { grid-row: span 2; }
+  .m-b { grid-column: span 2; }
+  .m-e { grid-column: 3; grid-row: 2 / span 2; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .foot-brand { grid-column: span 2; }
+  .cta .cut { display: none; }
+  .posters { height: 520px; max-width: 620px; }
+}
+@media (max-width: 720px) {
+  body { font-size: 16px; padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .site-header .bar { height: 76px; gap: 10px; }
+  .site-header .logo { width: 50px; height: 50px; }
+  .header-actions { gap: 8px; }
+  .theme-toggle { width: 48px; height: 48px; }
+  .icon-btn { width: 48px; height: 48px; }
+  .hero { padding-top: 104px; padding-bottom: 48px; }
+  .hero h1 { font-size: clamp(46px, 13.2vw, 58px); margin-top: 20px; }
+  .hero-badge { font-size: 11px; }
+  .hero-ctas .btn { width: 100%; min-height: 56px; }
+  .hero-rating { margin-top: 26px; }
+  .hero-art { margin-top: 12px; }
+  .float-chip { font-size: 12.5px; padding: 8px 12px 8px 8px; }
+  .float-chip .dot { width: 24px; height: 24px; }
+  .chip-2 { right: 0; }
+  .stamp { width: 90px; height: 90px; }
+  .mini-apple { width: 40px; }
+  .marquee { padding: 14px 0; }
+  .favs-head h2 { font-size: 48px; }
+  .favs-head p { font-size: 17px; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); scrollbar-width: none; padding-bottom: 4px; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filter { flex: none; }
+  .grid { grid-template-columns: 1fr; gap: 16px; }
+  .card.wide { grid-column: auto; flex-direction: column; }
+  .card.wide .media { aspect-ratio: 4 / 3.4; flex: none; min-height: 0; }
+  .card.wide .body { padding: 20px 22px 22px; }
+  .card.wide h3 { font-size: 34px; }
+  .card h3 { font-size: 28px; }
+  .add { width: 54px; height: 54px; }
+  .sticker { width: 80px; height: 80px; font-size: 22px; }
+  .sonho { border-radius: 36px 36px 0 0; }
+  .sonho h2 { font-size: 56px; }
+  .sonho p.lead { font-size: 17px; }
+  .sonho .btn { width: 100%; min-height: 56px; }
+  .sonho-media { grid-template-columns: 1fr .82fr; }
+  .video-frame { transform: rotate(3deg) translateY(-8%); }
+  .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px 200px; gap: 10px; }
+  .m-a { grid-row: span 2; grid-column: 1; }
+  .m-b { grid-column: 1 / span 2; grid-row: 4; }
+  .m-e { grid-column: 2; grid-row: 1 / span 2; }
+  .m-c { grid-column: 1; grid-row: 3; }
+  .m-d { grid-column: 2; grid-row: 3; }
+  .slow-word { font-size: 25vw; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .slow-word em { font-size: 24px; }
+  .steps { grid-template-columns: 1fr; }
+  .step, .step + .step { padding: 22px 0; border-right: none; border-bottom: 1px solid rgba(254,249,229,.12); }
+  .wheat { width: 60px; top: -50px; }
+  .moments-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); gap: 14px; scrollbar-width: none; }
+  .moments-grid::-webkit-scrollbar { display: none; }
+  .moment, .moment:first-child { flex: 0 0 84%; min-height: 440px; scroll-snap-align: center; }
+  .delivery { border-radius: 36px; margin-inline: 8px; }
+  .posters { height: 380px; }
+  .poster { width: 54%; }
+  .poster.p2 { left: 23%; }
+  .delivery .ctas .btn, .cta .ctas .btn { width: 100%; min-height: 56px; }
+  .score .big { font-size: 80px; }
+  .review { flex-basis: 88%; padding: 26px; min-height: 260px; }
+  .about-photo .tagline { right: 8px; top: 16px; font-size: 17px; }
+  .about p { font-size: 17px; }
+  .units { border-radius: 36px 36px 0 0; }
+  .unit-grid { grid-template-columns: 1fr; }
+  .unit.main { grid-column: auto; }
+  .unit h3 { font-size: 36px; }
+  .unit .ctas .btn { flex: 1; min-height: 52px; }
+  .services { gap: 14px 20px; }
+  .services .label { width: 100%; }
+  .service { width: calc(50% - 10px); }
+  .cta .blob1 { width: 300px; height: 300px; right: -120px; top: -100px; }
+  .cta .blob2 { width: 180px; height: 180px; right: -40px; bottom: -80px; }
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .foot-ig a { font-size: 26px; }
+  .mobile-bar {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--header-bg);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid var(--line);
+  }
+  .mobile-bar .btn { min-height: 52px; font-size: 13.5px; padding: 0 12px; }
+  .mobile-bar .btn-line { border-color: var(--ink); }
+}
+@media (max-width: 380px) {
+  .hero h1 { font-size: 44px; }
+  .chip-3 { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .rv-pending { opacity: 1; transform: none; }
+}
+</style>
+
+<!-- Símbolos SVG reutilizados -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="apple" viewBox="0 0 32 32">
+    <path fill="currentColor" d="M16 9.2c-2-1.6-4.6-2.2-7-1.3C5.4 9.3 3.8 13.2 4.5 17.4c.8 5 4.4 10.4 8 10.4 1.4 0 2.2-.7 3.5-.7s2.1.7 3.5.7c3.6 0 7.2-5.4 8-10.4.7-4.2-.9-8.1-4.5-9.5-2.4-.9-5-.3-7 1.3z"/>
+    <path fill="currentColor" d="M15.3 8.6c-.3-2.2.3-4.4 1.8-6 .3-.3.8-.3 1 .1.2.3.1.7-.2.9-1.1 1.2-1.6 2.9-1.3 4.8z"/>
+    <path fill="currentColor" d="M17.4 6.4c1.4-2.3 4-3.3 6.4-2.8-.9 2.3-3.4 3.6-6.4 2.8z" opacity=".75"/>
+  </symbol>
+  <symbol id="ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="chev-l" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="chev-r" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></symbol>
+  <symbol id="wheat" viewBox="0 0 40 90"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 88V20"/><path d="M20 30c-6-2-9-7-9-13 6 1 9 6 9 13zM20 30c6-2 9-7 9-13-6 1-9 6-9 13zM20 46c-6-2-9-7-9-13 6 1 9 6 9 13zM20 46c6-2 9-7 9-13-6 1-9 6-9 13zM20 62c-6-2-9-7-9-13 6 1 9 6 9 13zM20 62c6-2 9-7 9-13-6 1-9 6-9 13zM20 18c-2-5-1-10 0-15 1 5 2 10 0 15z"/></g></symbol>
+  <!-- Ilustrações para produtos sem foto -->
+  <symbol id="baguette" viewBox="0 0 300 200">
+    <g transform="rotate(-18 150 100)">
+      <rect x="18" y="72" width="264" height="58" rx="29" fill="#F2C27B"/>
+      <rect x="18" y="72" width="264" height="58" rx="29" fill="none" stroke="#7A1016" stroke-width="3"/>
+      <path d="M26 112c60 14 190 14 248 0" fill="none" stroke="#C98A3E" stroke-width="3" opacity=".6"/>
+      <g fill="#FEF9E5" stroke="#7A1016" stroke-width="2.5" stroke-linejoin="round">
+        <path d="M58 88c8-6 22-8 34-4-8 7-22 9-34 4z"/><path d="M104 86c8-6 22-8 34-4-8 7-22 9-34 4z"/>
+        <path d="M150 86c8-6 22-8 34-4-8 7-22 9-34 4z"/><path d="M196 86c8-6 22-8 34-4-8 7-22 9-34 4z"/>
+      </g>
+    </g>
+    <g fill="#FEF9E5"><circle cx="40" cy="40" r="3"/><circle cx="262" cy="158" r="3"/><circle cx="250" cy="36" r="2"/><circle cx="60" cy="168" r="2"/></g>
+  </symbol>
+  <symbol id="croissant" viewBox="0 0 300 200">
+    <g stroke="#7A1016" stroke-width="3" stroke-linejoin="round">
+      <path d="M40 150c-10-22 0-46 22-56l18 42z" fill="#E7A952"/>
+      <path d="M260 150c10-22 0-46-22-56l-18 42z" fill="#E7A952"/>
+      <path d="M70 140c-12-34 4-66 34-78l20 70z" fill="#F0B862"/>
+      <path d="M230 140c12-34-4-66-34-78l-20 70z" fill="#F0B862"/>
+      <path d="M112 132c-10-44 6-78 38-84 32 6 48 40 38 84-24 10-52 10-76 0z" fill="#F6C878"/>
+    </g>
+    <g fill="#FEF9E5" opacity=".95"><path d="M128 70l6-3 2 6-6 2z"/><path d="M160 64l6-1 1 6-6 1z"/><path d="M146 88l6-2 2 6-6 2z"/><path d="M170 92l5-3 3 5-5 3z"/><path d="M124 100l6-1 1 6-6 1z"/></g>
+    <g fill="#7A1016"><circle cx="40" cy="44" r="3"/><circle cx="262" cy="40" r="2.5"/><circle cx="252" cy="176" r="2"/></g>
+  </symbol>
+</svg>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="topo">
+  <div class="wrap bar">
+    <a href="#inicio" class="logo" aria-label="Maçã Padaria Artesanal, voltar ao início">
+      <img class="logo-light" src="assets/logo-branca.webp" alt="Maçã Padaria Artesanal" width="58" height="58">
+      <img class="logo-dark" src="assets/logo-vermelha.webp" alt="Maçã Padaria Artesanal" width="58" height="58">
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#historia">Nossa história</a>
+      <a href="#favoritos">Favoritos</a>
+      <a href="#unidades">Unidades</a>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn ig" href="https://instagram.com/macapadaria" target="_blank" rel="noopener" aria-label="Instagram da Maçã (@macapadaria)"><svg><use href="#ig"/></svg></a>
+      <a class="btn btn-red order" href="#cardapio">Pedir / Ver cardápio</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar entre modo claro e escuro">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path class="star" d="M10 10l1.2 2.6 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z"/>
+          <circle class="star" cx="38" cy="12" r="1.6"/>
+          <circle class="star" cx="33" cy="6" r="1"/>
+          <g class="cro">
+            <ellipse cx="9" cy="31" rx="3.6" ry="5.2" transform="rotate(-60 9 31)"/>
+            <ellipse cx="39" cy="31" rx="3.6" ry="5.2" transform="rotate(60 39 31)"/>
+            <ellipse cx="15.5" cy="27" rx="5.4" ry="7.4" transform="rotate(-35 15.5 27)"/>
+            <ellipse cx="32.5" cy="27" rx="5.4" ry="7.4" transform="rotate(35 32.5 27)"/>
+            <ellipse cx="24" cy="25.5" rx="7" ry="9.5"/>
+            <path class="shine" d="M21 19c1.5-1.4 4-1.6 5.6-.4-1.7.4-3.6.6-5.6.4z"/>
+          </g>
+        </svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuOpen" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu"><svg><use href="#menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- Menu mobile -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="top">
+    <span class="eyebrow">Maçã Padaria Artesanal</span>
+    <button class="icon-btn close" id="menuClose" type="button" aria-label="Fechar menu"><svg><use href="#x"/></svg></button>
+  </div>
+  <nav aria-label="Navegação mobile">
+    <a href="#inicio">Início <span>01</span></a>
+    <a href="#cardapio">Cardápio <span>02</span></a>
+    <a href="#historia">Nossa história <span>03</span></a>
+    <a href="#favoritos">Favoritos <span>04</span></a>
+    <a href="#unidades">Unidades <span>05</span></a>
+  </nav>
+  <div class="foot">
+    <a class="btn btn-cream" href="#cardapio">Ver cardápio <svg><use href="#arrow"/></svg></a>
+    <a class="btn btn-line-cream" href="https://instagram.com/macapadaria" target="_blank" rel="noopener"><svg><use href="#ig"/></svg> @macapadaria</a>
+  </div>
+</div>
+
+<main>
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="hero-badge eyebrow"><svg class="apple"><use href="#apple"/></svg> Padaria artesanal • Curitiba</span>
+        <h1 id="hero-title">Tem coisa boa<br>saindo do <span class="accent">forno.<svg class="circle" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="100" cy="52" rx="96" ry="44" transform="rotate(-4 100 52)"/></svg></span></h1>
+        <p class="hero-lead">Pães de fermentação natural, croissants, sonhos e cafés feitos para transformar uma pausa qualquer em uma parte boa do dia.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-red" href="#cardapio">Conhecer o cardápio <svg><use href="#arrow"/></svg></a>
+          <a class="btn btn-line" href="#unidades">Encontrar uma unidade</a>
+        </div>
+        <div class="hero-rating">
+          <div><span class="stars" aria-hidden="true">★★★★★</span><small>no Google, unidade Vila Izabel</small></div>
+          <span class="sep" aria-hidden="true"></span>
+          <div><strong>4,7</strong><small>+1.000 avaliações</small></div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="false">
+        <div class="blob-pink" aria-hidden="true"></div>
+        <div class="blob-red" aria-hidden="true"></div>
+        <div class="blob-cream" aria-hidden="true"></div>
+        <div class="hero-photo" id="heroPhoto">
+          <img src="assets/hero-caixas.webp" alt="Folhados sobre caixas vermelhas da Maçã escritas Pão & Café & Sonhos, em uma cadeira vermelha" width="1000" height="1291" fetchpriority="high">
+        </div>
+        <svg class="mini-apple" aria-hidden="true"><use href="#apple"/></svg>
+        <div class="float-chip chip-1"><span class="dot"><svg><use href="#wheat"/></svg></span>Fermentação natural</div>
+        <div class="float-chip chip-2"><span class="dot"><svg><use href="#apple"/></svg></span>Feito diariamente</div>
+        <div class="float-chip chip-3"><span class="dot">★</span>Ingredientes selecionados</div>
+        <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="58" fill="#231F20"/>
+          <g class="ring">
+            <defs><path id="ringPath" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
+            <text><textPath href="#ringPath">feito aqui • todo dia • curitiba •</textPath></text>
+          </g>
+          <use href="#apple" x="44" y="42" width="32" height="32" style="color:#ED1F29"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE
+       ============================================================ -->
+  <div class="marquee-clip"><div class="marquee" aria-label="Fermentação natural, pães artesanais, café, croissants, sonhos, Curitiba">
+    <div class="marquee-track" aria-hidden="true">
+      <div class="marquee-group">
+        <span>Fermentação natural</span><svg><use href="#apple"/></svg>
+        <span>Pães artesanais</span><svg><use href="#apple"/></svg>
+        <span>Café</span><svg><use href="#apple"/></svg>
+        <span>Croissants</span><svg><use href="#apple"/></svg>
+        <span>Sonhos</span><svg><use href="#apple"/></svg>
+        <span>Curitiba</span><svg><use href="#apple"/></svg>
+      </div>
+      <div class="marquee-group">
+        <span>Fermentação natural</span><svg><use href="#apple"/></svg>
+        <span>Pães artesanais</span><svg><use href="#apple"/></svg>
+        <span>Café</span><svg><use href="#apple"/></svg>
+        <span>Croissants</span><svg><use href="#apple"/></svg>
+        <span>Sonhos</span><svg><use href="#apple"/></svg>
+        <span>Curitiba</span><svg><use href="#apple"/></svg>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- ============================================================
+       FAVORITOS DA CASA + FILTROS
+       ============================================================ -->
+  <section class="favs" id="favoritos" aria-labelledby="favs-title">
+    <div class="wrap">
+      <div class="favs-head rv">
+        <div>
+          <span class="eyebrow"><svg class="apple"><use href="#apple"/></svg> Do balcão</span>
+          <h2 id="favs-title" style="margin-top:16px">Favoritos <span class="accent">da casa</span></h2>
+        </div>
+        <p>Alguns motivos para você aparecer por aqui com fome.</p>
+      </div>
+
+      <div class="filters" id="cardapio" role="group" aria-label="Filtrar cardápio">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">Tudo</button>
+        <button class="filter" type="button" data-filter="paes" aria-pressed="false">Pães</button>
+        <button class="filter" type="button" data-filter="folhados" aria-pressed="false">Folhados</button>
+        <button class="filter" type="button" data-filter="doces" aria-pressed="false">Doces</button>
+        <button class="filter" type="button" data-filter="cafe" aria-pressed="false">Café</button>
+      </div>
+
+      <div class="grid" id="productGrid">
+        <!-- Destaque (2 colunas) -->
+        <article class="card wide" data-cat="doces" data-id="choc">
+          <div class="media">
+            <div class="badges"><span class="badge red">Favorito</span></div>
+            <img src="assets/sonho-chocolate.webp" alt="Sonho coberto de chocolate com raspas de chocolate por cima" loading="lazy" width="484" height="652" style="object-position:50% 40%">
+          </div>
+          <div class="body">
+            <span class="cat">Doces · Sonhos</span>
+            <h3>Sonho 3x Chocolate</h3>
+            <p class="desc">Chocolate no recheio, na cobertura e em raspas por cima. Três vezes, como o nome promete.</p>
+            <div class="foot"><span class="price"><small>R$</small>19,50</span><button class="add" type="button" aria-label="Ver detalhes do Sonho 3x Chocolate"><svg><use href="#plus"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="folhados" data-id="croissant">
+          <div class="media illus on-red">
+            <div class="badges"><span class="badge">Folhado</span></div>
+            <svg aria-hidden="true"><use href="#croissant"/></svg>
+            <span class="note">folhado amanteigado</span>
+          </div>
+          <div class="body">
+            <span class="cat">Folhados</span>
+            <h3>Croissant de Amêndoas</h3>
+            <p class="desc">Folhado amanteigado com creme de amêndoas.</p>
+            <div class="foot"><span class="price"><small>R$</small>20,50</span><button class="add" type="button" aria-label="Ver detalhes do Croissant de Amêndoas"><svg><use href="#plus"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="doces" data-id="morango">
+          <div class="media">
+            <div class="badges"><span class="badge pink">Queridinho</span></div>
+            <img src="assets/sonho-morango.webp" alt="Sonho cortado ao meio mostrando creme branco e um morango inteiro dentro" loading="lazy" width="650" height="817">
+          </div>
+          <div class="body">
+            <span class="cat">Doces · Sonhos</span>
+            <h3>Sonho de Morango</h3>
+            <p class="desc">Massa fofinha, creme e um morango inteiro escondido no meio.</p>
+            <div class="foot"><span class="price na">Preço no balcão</span><button class="add" type="button" aria-label="Ver detalhes do Sonho de Morango"><svg><use href="#plus"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="paes" data-id="croque">
+          <div class="media">
+            <img src="assets/croque.webp" alt="Croque madame com queijo gratinado e ovo por cima, em bandeja de inox" loading="lazy" width="819" height="809">
+          </div>
+          <div class="body">
+            <span class="cat">No pão da casa</span>
+            <h3>Croque Madame</h3>
+            <p class="desc">Pão da casa, presunto, queijo gratinado e um ovo por cima.</p>
+            <div class="foot"><span class="price na">Preço no balcão</span><button class="add" type="button" aria-label="Ver detalhes do Croque Madame"><svg><use href="#plus"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="folhados" data-id="espiral">
+          <div class="media">
+            <div class="badges"><span class="badge">Feito à mão</span></div>
+            <img src="assets/folhados-cafe.webp" alt="Dois folhados em espiral sobre tábua de madeira ao lado de um café gelado" loading="lazy" width="1000" height="1230" style="object-position:60% 55%">
+          </div>
+          <div class="body">
+            <span class="cat">Folhados</span>
+            <h3>Folhado em Espiral</h3>
+            <p class="desc">Camadas de massa amanteigada, douradas no forno, com gotas de chocolate.</p>
+            <div class="foot"><span class="price na">Preço no balcão</span><button class="add" type="button" aria-label="Ver detalhes do Folhado em Espiral"><svg><use href="#plus"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="doces" data-id="folhado">
+          <div class="media">
+            <img src="assets/sonho-folhado.webp" alt="Sonho açucarado com uma lâmina de folhado crocante por cima" loading="lazy" width="735" height="803">
+          </div>
+          <div class="body">
+            <span class="cat">Doces · Sonhos</span>
+            <h3>Sonho com Folhado</h3>
+            <p class="desc">Recheio cremoso e uma lâmina de folhado crocante polvilhada de açúcar.</p>
+            <div class="foot"><span class="price na">Preço no balcão</span><button class="add" type="button" aria-label="Ver detalhes do Sonho com Folhado"><svg><use href="#plus"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="paes" data-id="baguette">
+          <div class="media illus on-pink">
+            <div class="badges"><span class="badge red">Fermentação natural</span></div>
+            <svg aria-hidden="true"><use href="#baguette"/></svg>
+            <span class="note">casca fina, miolo aberto</span>
+          </div>
+          <div class="body">
+            <span class="cat">Pães</span>
+            <h3>Baguette</h3>
+            <p class="desc">Fermentação natural, casca fina e crocante.</p>
+            <div class="foot"><span class="price"><small>R$</small>10,00</span><button class="add" type="button" aria-label="Ver detalhes da Baguette"><svg><use href="#plus"/></svg></button></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="cafe" data-id="bebidas">
+          <div class="media">
+            <div class="badges"><span class="badge">Gelados</span></div>
+            <img src="assets/bebidas.webp" alt="Quatro bebidas geladas com guarda-chuvinhas coloridos sobre mesa vermelha" loading="lazy" width="738" height="810">
+          </div>
+          <div class="body">
+            <span class="cat">Café & bebidas</span>
+            <h3>Gelados da Casa</h3>
+            <p class="desc">Para os dias de sol em Curitiba, que existem. Com direito a guarda-chuvinha.</p>
+            <div class="foot"><span class="price na">Preço no balcão</span><button class="add" type="button" aria-label="Ver detalhes dos Gelados da Casa"><svg><use href="#plus"/></svg></button></div>
+          </div>
+        </article>
+      </div>
+      <p class="grid-note">Seleção para demonstração. Preços de referência; confirme no balcão ou no delivery.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DESTAQUE DO SONHO
+       ============================================================ -->
+  <section class="sonho" id="sonhos" aria-labelledby="sonho-title">
+    <div class="wrap">
+      <div class="sonho-copy rv">
+        <span class="eyebrow">A especialidade</span>
+        <h2 id="sonho-title" style="margin-top:14px">Um sonho.<br><span class="accent">Literalmente.</span></h2>
+        <p class="lead">Dos clássicos aos mais inesperados, nossos sonhos começam com uma massa fofinha e terminam com aquele problema clássico: querer experimentar todos.</p>
+        <div class="tags" role="group" aria-label="Sabores de sonho">
+          <button class="tag" type="button" data-name="Sonho Brûlée" data-price="19,50" aria-pressed="false">Brûlée</button>
+          <button class="tag" type="button" data-name="Sonho Romeu & Julieta" data-price="18,50" aria-pressed="false">Romeu &amp; Julieta</button>
+          <button class="tag" type="button" data-name="Sonho Mineiro" data-price="18,50" aria-pressed="false">Mineiro</button>
+          <button class="tag" type="button" data-name="Sonho Cheesecake" data-price="19,50" aria-pressed="false">Cheesecake</button>
+          <button class="tag" type="button" data-name="Sonho 3x Chocolate" data-price="19,50" aria-pressed="false">3x Chocolate</button>
+        </div>
+        <p class="tag-info" id="tagInfo" aria-live="polite">Toque num sabor para ver o preço.</p>
+        <a class="btn btn-red" href="#cardapio" id="seeSonhos">Conhecer os sonhos <svg><use href="#arrow"/></svg></a>
+      </div>
+      <div class="sonho-media rv">
+        <div class="photo"><img src="assets/sonho-recheio.webp" alt="Sonhos cortados com recheio cremoso escorrendo e lâmina de folhado por cima" loading="lazy" width="1100" height="1074" style="object-position:62% 50%"></div>
+        <div class="video-frame">
+          <span class="video-label">Recheio de verdade</span>
+          <video src="assets/sonho-chocolate.mp4" poster="assets/sonho-chocolate-poster.jpg" muted loop playsinline preload="metadata" aria-label="Vídeo: sonho sendo aberto com recheio de chocolate escorrendo"></video>
+          <button class="video-toggle" type="button" aria-label="Pausar vídeo"><svg><use href="#pause"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VITRINE (fotos e vídeo)
+       ============================================================ -->
+  <section class="vitrine" aria-labelledby="vitrine-title">
+    <div class="wrap">
+      <div class="vitrine-head rv">
+        <h2 id="vitrine-title">Direto da <span class="accent">vitrine</span></h2>
+        <p>Um pouco do que passa pelo balcão. A seleção muda, a vontade de provar tudo continua.</p>
+      </div>
+      <div class="mosaic rv">
+        <figure class="m-a"><img src="assets/sonhos-bandeja.webp" alt="Bandeja com seis sonhos de sabores diferentes sobre papel com a marca Maçã" loading="lazy" width="742" height="767"><figcaption>Seis sabores, uma bandeja</figcaption></figure>
+        <figure class="m-b"><img src="assets/sonho-mordida.webp" alt="Sonho com cobertura de chocolate aberto com as mãos, recheios amarelo e de chocolate" loading="lazy" width="1000" height="1000" style="object-position:50% 58%"><figcaption>Dois recheios</figcaption></figure>
+        <figure class="m-c"><img src="assets/sonhos-laranja.webp" alt="Três sonhos açucarados com creme laranja em papel marrom, em frente à porta vermelha da loja" loading="lazy" width="726" height="794"></figure>
+        <figure class="m-d"><img src="assets/sonho-santo-antonio.webp" alt="Sonho com cobertura branca e imagem de Santo Antônio, ao lado de um café" loading="lazy" width="804" height="802"><figcaption>Edição especial</figcaption></figure>
+        <figure class="m-e">
+          <video src="assets/sonho-cortado.mp4" poster="assets/sonho-cortado-poster.jpg" muted loop playsinline preload="metadata" aria-label="Vídeo: sonho de chocolate com estrelinhas sendo cortado"></video>
+          <button class="video-toggle" type="button" aria-label="Pausar vídeo"><svg><use href="#pause"/></svg></button>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FERMENTAÇÃO NATURAL
+       ============================================================ -->
+  <section class="ferment" aria-labelledby="ferment-title">
+    <div class="wrap">
+      <svg class="wheat" aria-hidden="true"><use href="#wheat"/></svg>
+      <div class="ferment-top rv">
+        <h2 id="ferment-title">Tempo também é <span class="accent">ingrediente.</span></h2>
+        <p class="intro">Nossos pães de fermentação natural respeitam processos longos, ingredientes selecionados e aquele tipo de trabalho que não combina muito com pressa.</p>
+      </div>
+      <div class="slow-word" aria-hidden="true">sem pressa <em>tempo, farinha, água e paciência.</em></div>
+      <div class="steps">
+        <div class="step rv"><span class="n">01</span><h3>Fermentação lenta</h3><p>A massa descansa o tempo que precisa. Sabor e casca vêm daí.</p></div>
+        <div class="step rv"><span class="n">02</span><h3>Produção artesanal</h3><p>Modelado à mão, em produção própria.</p></div>
+        <div class="step rv"><span class="n">03</span><h3>Ingredientes selecionados</h3><p>Pouca coisa na receita, e cada uma escolhida com cuidado.</p></div>
+        <div class="step rv"><span class="n">04</span><h3>Assados diariamente</h3><p>Forno ligado todo dia, para o pão chegar fresco ao balcão.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ESCOLHA SEU MOMENTO
+       ============================================================ -->
+  <section class="moments" aria-labelledby="moments-title">
+    <div class="wrap">
+      <span class="eyebrow rv"><svg class="apple"><use href="#apple"/></svg> Escolha seu momento</span>
+      <h2 id="moments-title" class="rv" style="margin-top:14px">Tem Maçã para <span class="accent">cada hora</span> do dia.</h2>
+      <div class="moments-grid">
+        <a class="moment rv" href="#cardapio" data-go="folhados">
+          <img src="assets/folhados-cafe.webp" alt="Folhados em espiral com café gelado em mesa vermelha ao sol" loading="lazy" width="1000" height="1230">
+          <div class="txt"><span class="when">Café da manhã</span><h3>Começar bem deveria ser obrigatório.</h3></div>
+        </a>
+        <a class="moment rv" href="#cardapio" data-go="doces">
+          <img src="assets/sonho-santo-antonio.webp" alt="Sonho com cobertura branca ao lado de uma xícara de café" loading="lazy" width="804" height="802">
+          <div class="txt"><span class="when">Café da tarde</span><h3>Só mais um café e um sonho.</h3></div>
+        </a>
+        <a class="moment rv" href="#unidades">
+          <img src="assets/sonhos-bandeja.webp" alt="Bandeja com seis sonhos variados" loading="lazy" width="742" height="767">
+          <div class="txt"><span class="when">Levar para casa</span><h3>Porque coisa boa merece continuar no jantar.</h3></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DELIVERY
+       ============================================================ -->
+  <section class="delivery" id="delivery" aria-labelledby="delivery-title">
+    <div class="wrap">
+      <div class="rv">
+        <h2 id="delivery-title" class="visually-hidden">Delivery Maçã</h2>
+        <div class="pediu" aria-hidden="true">
+          <div>Pediu</div>
+          <div class="last">Chegou <span class="oval">Maçã<svg viewBox="0 0 200 100" preserveAspectRatio="none"><ellipse cx="100" cy="50" rx="97" ry="46" transform="rotate(-8 100 50)"/></svg></span></div>
+        </div>
+        <p class="lead">Dia de sol, dia de chuva: a entrega não para. Pão, café e sonhos chegam na sua porta na caixa vermelha da Maçã.</p>
+        <div class="ctas">
+          <a class="btn btn-cream" href="https://instagram.com/macapadaria" target="_blank" rel="noopener">Pedir pelo link na bio <svg><use href="#arrow"/></svg></a>
+          <a class="btn btn-line-cream" href="#unidades">Prefiro buscar</a>
+        </div>
+      </div>
+      <div class="posters rv">
+        <div class="poster p1"><img src="assets/post-pediu.webp" alt="Peça: Pediu, chegou, Maçã. Caixa Pão & Café & Sonhos sobre mesa vermelha" loading="lazy" width="648" height="832"></div>
+        <div class="poster p2"><img src="assets/post-delivery.webp" alt="Ilustração de entregador de moletom vinho segurando caixas da Maçã, com o texto delivery maçã, link na bio" loading="lazy" width="646" height="828"></div>
+        <div class="poster p3"><img src="assets/post-chuva.webp" alt="Peça vermelha: Dia de sol, dia de chuva, a entrega não para" loading="lazy" width="618" height="751"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       AVALIAÇÕES
+       ============================================================ -->
+  <section class="reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="rv">
+        <span class="eyebrow"><svg class="apple"><use href="#apple"/></svg> Avaliações</span>
+        <h2 id="reviews-title" style="margin-top:14px">Quem passa por aqui <span class="accent">costuma voltar.</span></h2>
+        <div class="score">
+          <span class="big">4,7</span>
+          <div><span class="stars" aria-label="5 estrelas">★★★★★</span><small>+1.000 avaliações<br>unidade Vila Izabel</small></div>
+        </div>
+        <div class="carousel-ctrl">
+          <button class="icon-btn" type="button" id="revPrev" aria-label="Avaliação anterior"><svg><use href="#chev-l"/></svg></button>
+          <button class="icon-btn" type="button" id="revNext" aria-label="Próxima avaliação"><svg><use href="#chev-r"/></svg></button>
+          <div class="dots" id="revDots" role="tablist" aria-label="Escolher avaliação"></div>
+        </div>
+      </div>
+      <div class="track" id="revTrack" aria-roledescription="carrossel" aria-label="Avaliações de clientes" tabindex="0">
+        <article class="review"><span class="q" aria-hidden="true">“</span><span class="stars" aria-label="5 estrelas">★★★★★</span><blockquote>Atendimento impecável e o sonho de morango estava absurdo de bom.</blockquote><div class="who"><span aria-hidden="true">N</span>Naara</div></article>
+        <article class="review"><span class="q" aria-hidden="true">“</span><span class="stars" aria-label="5 estrelas">★★★★★</span><blockquote>O croissant de amêndoas é simplesmente divino.</blockquote><div class="who"><span aria-hidden="true">A</span>Amauri</div></article>
+        <article class="review"><span class="q" aria-hidden="true">“</span><span class="stars" aria-label="5 estrelas">★★★★★</span><blockquote>O sonho brûlée e o croque madame estavam deliciosos.</blockquote><div class="who"><span aria-hidden="true">M</span>Mieko</div></article>
+        <article class="review"><span class="q" aria-hidden="true">“</span><span class="stars" aria-label="5 estrelas">★★★★★</span><blockquote>Tudo muito gostoso e bem servido.</blockquote><div class="who"><span aria-hidden="true">C</span>Camila</div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOBRE
+       ============================================================ -->
+  <section class="about" id="historia" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="about-photo rv">
+        <div class="frame"><img src="assets/fachada.webp" alt="Fachada da Maçã com porta de vidro, escrito Maçã padaria artesanal brasileira, cadeiras de madeira e galochas com estampa de maçã" loading="lazy" width="1000" height="1161"></div>
+        <div class="tagline">Padaria artesanal<br>brasileira</div>
+      </div>
+      <div class="rv">
+        <span class="eyebrow"><svg class="apple"><use href="#apple"/></svg> Nossa história</span>
+        <h2 id="about-title">Padaria de bairro. <span class="accent">Com obsessão</span> por coisa boa.</h2>
+        <p>A Maçã é daquelas padarias em que você entra para buscar pão e acaba ficando para o café. Pães de produção própria, fermentação natural, folhados, doces e uma seleção de produtos para levar um pouco da experiência para casa.</p>
+        <ul class="facts">
+          <li><svg><use href="#apple"/></svg>Produção própria</li>
+          <li><svg><use href="#apple"/></svg>Fermentação natural</li>
+          <li><svg><use href="#apple"/></svg>Folhados e sonhos</li>
+          <li><svg><use href="#apple"/></svg>Cafés</li>
+          <li><svg><use href="#apple"/></svg>Curitiba, PR</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       UNIDADES + SERVIÇOS
+       ============================================================ -->
+  <section class="units" id="unidades" aria-labelledby="units-title">
+    <div class="wrap">
+      <div class="units-head rv">
+        <h2 id="units-title">Tem uma Maçã <span class="accent">perto de você.</span></h2>
+        <p>Três endereços em Curitiba. Os botões abrem o Google Maps já com o endereço.</p>
+      </div>
+      <div class="unit-grid">
+        <article class="unit main rv">
+          <div class="num">Unidade 01 <svg><use href="#apple"/></svg></div>
+          <h3>Vila Izabel</h3>
+          <address>R. Prof. Sebastião Paraná, 195<br>Vila Izabel, Curitiba - PR<br>80320-070</address>
+          <span class="phone">(41) 3093-9626</span>
+          <div class="ctas">
+            <a class="btn btn-cream" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=R.%20Prof.%20Sebasti%C3%A3o%20Paran%C3%A1%2C%20195%20-%20Vila%20Izabel%2C%20Curitiba%20-%20PR%2C%2080320-070"><svg><use href="#pin"/></svg> Como chegar</a>
+            <a class="btn btn-line-cream" href="tel:+554130939626"><svg><use href="#phone"/></svg> Ligar</a>
+          </div>
+        </article>
+        <article class="unit rv">
+          <div class="num">Unidade 02 <svg><use href="#apple"/></svg></div>
+          <h3>Praça do Japão</h3>
+          <address>Av. Sete de Setembro, 4979<br>Curitiba - PR</address>
+          <div class="ctas">
+            <a class="btn btn-red" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Sete%20de%20Setembro%2C%204979%2C%20Curitiba%20-%20PR"><svg><use href="#pin"/></svg> Como chegar</a>
+          </div>
+        </article>
+        <article class="unit rv">
+          <div class="num">Unidade 03 <svg><use href="#apple"/></svg></div>
+          <h3>Alto da XV</h3>
+          <address>R. Fernando Amaro, 802 B<br>Curitiba - PR</address>
+          <div class="ctas">
+            <a class="btn btn-red" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=R.%20Fernando%20Amaro%2C%20802%20B%2C%20Curitiba%20-%20PR"><svg><use href="#pin"/></svg> Como chegar</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="services rv" aria-label="Serviços">
+        <span class="label">Por aqui tem</span>
+        <span class="service"><i data-lucide="utensils"></i>Comer no local</span>
+        <span class="service"><i data-lucide="package"></i>Para viagem</span>
+        <span class="service"><i data-lucide="shopping-bag"></i>Retirada</span>
+        <span class="service"><i data-lucide="bike"></i>Entrega</span>
+        <span class="service"><i data-lucide="coffee"></i>Café</span>
+        <span class="service"><i data-lucide="accessibility"></i>Acessibilidade</span>
+        <span class="service"><i data-lucide="wifi"></i>Wi-Fi</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA FINAL
+       ============================================================ -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="blob1" aria-hidden="true"></div>
+    <div class="blob2" aria-hidden="true"></div>
+    <div class="cut" aria-hidden="true"><img src="assets/croque.webp" alt="" loading="lazy" width="819" height="809"></div>
+    <div class="wrap rv">
+      <h2 id="cta-title">Já escolheu o que vai acompanhar <span class="accent">seu café?</span></h2>
+      <p>Passe em uma das nossas unidades ou dê uma olhada no cardápio.</p>
+      <div class="ctas">
+        <a class="btn btn-cream" href="#cardapio">Ver cardápio <svg><use href="#arrow"/></svg></a>
+        <a class="btn btn-line-cream" href="#unidades">Encontrar uma unidade</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#inicio" class="logo" aria-label="Voltar ao início">
+          <img class="logo-light" src="assets/logo-branca.webp" alt="Maçã Padaria Artesanal" loading="lazy" width="96" height="96">
+          <img class="logo-dark" src="assets/logo-vermelha.webp" alt="Maçã Padaria Artesanal" loading="lazy" width="96" height="96">
+        </a>
+        <p>Maçã Padaria Artesanal<br>Curitiba, Paraná.</p>
+      </div>
+      <nav class="foot-links" aria-label="Links do rodapé">
+        <h4>Navegar</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#historia">Nossa história</a></li>
+          <li><a href="#unidades">Unidades</a></li>
+          <li><a href="https://instagram.com/macapadaria" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </nav>
+      <div class="foot-ig">
+        <h4>Instagram</h4>
+        <a href="https://instagram.com/macapadaria" target="_blank" rel="noopener">@macapadaria</a>
+      </div>
+    </div>
+    <div class="foot-line">
+      <span class="fun">Feito com farinha, manteiga e um pouquinho de obsessão.</span>
+      <span>© Maçã Padaria Artesanal</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Barra inferior mobile -->
+<div class="mobile-bar" aria-label="Atalhos">
+  <a class="btn btn-red" href="#cardapio">Cardápio</a>
+  <a class="btn btn-line" href="#unidades"><svg><use href="#pin"/></svg> Como chegar</a>
+</div>
+
+<!-- Detalhe do produto -->
+<dialog class="sheet" id="productSheet" aria-labelledby="sheetTitle">
+  <div class="media" id="sheetMedia"></div>
+  <button class="icon-btn close" type="button" id="sheetClose" aria-label="Fechar"><svg><use href="#x"/></svg></button>
+  <div class="content">
+    <span class="cat" id="sheetCat" style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)"></span>
+    <h3 id="sheetTitle"></h3>
+    <p id="sheetDesc" style="color:var(--ink-2)"></p>
+    <div class="row">
+      <span class="price" id="sheetPrice"></span>
+      <a class="btn btn-red" href="#unidades" id="sheetGo">Encontrar uma unidade</a>
+    </div>
+  </div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script>
+/* ============================================================
+   MAÇÃ — interações
+   ============================================================ */
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Ícones Lucide (serviços) */
+  try { if (window.lucide) lucide.createIcons({ attrs: { 'stroke-width': 1.8 } }); } catch (e) {}
+
+  /* ---------- Tema claro/escuro ---------- */
+  var toggle = $('#themeToggle');
+  function setTheme(mode) {
+    root.setAttribute('data-mode', mode);
+    toggle.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
+    try { localStorage.setItem('maca-tema', mode); } catch (e) {}
+  }
+  toggle.setAttribute('aria-pressed', root.getAttribute('data-mode') === 'dark' ? 'true' : 'false');
+  toggle.addEventListener('click', function () {
+    toggle.classList.remove('flip'); void toggle.offsetWidth; toggle.classList.add('flip');
+    setTheme(root.getAttribute('data-mode') === 'dark' ? 'light' : 'dark');
+  });
+
+  /* ---------- Header compacto no scroll + parallax sutil ---------- */
+  var header = $('.site-header');
+  var heroImg = $('#heroPhoto img');
+  var ticking = false;
+  function onScroll() {
+    var y = window.scrollY || 0;
+    header.classList.toggle('scrolled', y > 24);
+    if (!reduce && heroImg && y < 900) heroImg.style.transform = 'scale(1.06) translateY(' + (y * 0.04).toFixed(1) + 'px)';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  /* ---------- Menu mobile ---------- */
+  var menu = $('#mobileMenu'), openBtn = $('#menuOpen'), closeBtn = $('#menuClose');
+  function openMenu() { menu.classList.add('open'); openBtn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; closeBtn.focus(); }
+  function closeMenu() { menu.classList.remove('open'); openBtn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
+  openBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', function () { closeMenu(); openBtn.focus(); });
+  $$('a', menu).forEach(function (a) { a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu(); });
+
+  /* ---------- Filtros do cardápio ---------- */
+  var grid = $('#productGrid');
+  var cards = $$('.card', grid);
+  var filters = $$('.filter');
+  filters.forEach(function (f) {
+    var key = f.dataset.filter;
+    var n = key === 'all' ? cards.length : cards.filter(function (c) { return c.dataset.cat === key; }).length;
+    var s = document.createElement('span'); s.className = 'count'; s.textContent = n; f.appendChild(s);
+    f.addEventListener('click', function () { applyFilter(key); });
+  });
+  var filterTimer;
+  function applyFilter(key) {
+    filters.forEach(function (f) { f.setAttribute('aria-pressed', f.dataset.filter === key ? 'true' : 'false'); });
+    clearTimeout(filterTimer);
+    var visible = cards.filter(function (c) { return !c.hidden; });
+    visible.forEach(function (c) { c.classList.add('is-hiding'); });
+    filterTimer = setTimeout(function () {
+      grid.classList.toggle('filtered', key !== 'all');
+      cards.forEach(function (c) {
+        var show = key === 'all' || c.dataset.cat === key;
+        c.classList.remove('is-hiding');
+        c.hidden = !show;
+        if (show) c.classList.add('is-entering');
+      });
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          cards.forEach(function (c, i) {
+            if (!c.hidden) { c.style.transitionDelay = (i * 40) + 'ms'; c.classList.remove('is-entering'); }
+          });
+          setTimeout(function () { cards.forEach(function (c) { c.style.transitionDelay = ''; }); }, 700);
+        });
+      });
+    }, reduce ? 0 : 240);
+  }
+  function goToMenu(key) {
+    applyFilter(key);
+    $('#cardapio').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  }
+
+  /* Botão "Conhecer os sonhos" e cards de momento → filtram e rolam */
+  $('#seeSonhos').addEventListener('click', function (e) { e.preventDefault(); goToMenu('doces'); });
+  $$('.moment[data-go]').forEach(function (m) {
+    m.addEventListener('click', function (e) { e.preventDefault(); goToMenu(m.dataset.go); });
+  });
+
+  /* ---------- Tags de sabores do sonho ---------- */
+  var tagInfo = $('#tagInfo');
+  $$('.tag').forEach(function (t) {
+    t.addEventListener('click', function () {
+      $$('.tag').forEach(function (o) { o.setAttribute('aria-pressed', o === t ? 'true' : 'false'); });
+      tagInfo.innerHTML = '';
+      var name = document.createElement('span'); name.textContent = t.dataset.name;
+      var price = document.createElement('strong'); price.textContent = 'R$ ' + t.dataset.price;
+      tagInfo.appendChild(name); tagInfo.appendChild(price);
+    });
+  });
+
+  /* ---------- Detalhe do produto (botão +) ---------- */
+  var sheet = $('#productSheet');
+  $$('.add').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var card = b.closest('.card');
+      var media = $('.media', card);
+      var sm = $('#sheetMedia');
+      sm.className = media.className; sm.innerHTML = '';
+      var img = $('img', media), svg = $('svg', media);
+      if (img) { var i2 = img.cloneNode(); i2.removeAttribute('loading'); sm.appendChild(i2); }
+      else if (svg) sm.appendChild(svg.cloneNode(true));
+      $('#sheetCat').textContent = $('.cat', card).textContent;
+      $('#sheetTitle').textContent = $('h3', card).textContent;
+      $('#sheetDesc').textContent = $('.desc', card).textContent;
+      var p = $('.price', card);
+      $('#sheetPrice').className = p.className; $('#sheetPrice').innerHTML = p.innerHTML;
+      if (sheet.showModal) sheet.showModal(); else sheet.setAttribute('open', '');
+    });
+  });
+  function closeSheet() { if (sheet.close) sheet.close(); else sheet.removeAttribute('open'); }
+  $('#sheetClose').addEventListener('click', closeSheet);
+  $('#sheetGo').addEventListener('click', closeSheet);
+  sheet.addEventListener('click', function (e) { if (e.target === sheet) closeSheet(); });
+
+  /* ---------- Carrossel de avaliações (botões, pontos e swipe nativo) ---------- */
+  var track = $('#revTrack'), slides = $$('.review', track), dotsWrap = $('#revDots');
+  slides.forEach(function (s, i) {
+    var d = document.createElement('button');
+    d.type = 'button'; d.setAttribute('aria-label', 'Avaliação ' + (i + 1));
+    d.addEventListener('click', function () { goSlide(i); });
+    dotsWrap.appendChild(d);
+  });
+  var dots = $$('button', dotsWrap);
+  function current() {
+    var x = track.scrollLeft, best = 0, bestD = Infinity;
+    slides.forEach(function (s, i) { var d = Math.abs(s.offsetLeft - track.offsetLeft - x); if (d < bestD) { bestD = d; best = i; } });
+    return best;
+  }
+  function goSlide(i) {
+    i = (i + slides.length) % slides.length;
+    track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+  }
+  function markDots() { var c = current(); dots.forEach(function (d, i) { d.setAttribute('aria-current', i === c ? 'true' : 'false'); }); }
+  $('#revPrev').addEventListener('click', function () { goSlide(current() - 1); });
+  $('#revNext').addEventListener('click', function () {
+    var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    goSlide(atEnd ? 0 : current() + 1);
+  });
+  track.addEventListener('scroll', function () { requestAnimationFrame(markDots); }, { passive: true });
+  track.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { e.preventDefault(); goSlide(current() + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goSlide(current() - 1); }
+  });
+  markDots();
+
+  /* ---------- Vídeos: tocam quando visíveis, com botão pausar ---------- */
+  var videos = $$('video');
+  videos.forEach(function (v) {
+    var btn = v.parentElement.querySelector('.video-toggle');
+    v.dataset.user = reduce ? 'paused' : '';
+    function sync() {
+      var paused = v.paused;
+      btn.innerHTML = '<svg><use href="#' + (paused ? 'play' : 'pause') + '"/></svg>';
+      btn.setAttribute('aria-label', paused ? 'Tocar vídeo' : 'Pausar vídeo');
+    }
+    btn.addEventListener('click', function () {
+      if (v.paused) { v.dataset.user = ''; v.play().catch(function () {}); }
+      else { v.dataset.user = 'paused'; v.pause(); }
+    });
+    v.addEventListener('play', sync); v.addEventListener('pause', sync); sync();
+  });
+  if ('IntersectionObserver' in window) {
+    var vio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting && v.dataset.user !== 'paused') v.play().catch(function () {});
+        else if (!en.isIntersecting) v.pause();
+      });
+    }, { threshold: 0.25 });
+    videos.forEach(function (v) { vio.observe(v); });
+  }
+
+  /* ---------- Revelação suave no scroll (apenas abaixo da dobra) ---------- */
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('rv-in'); en.target.classList.remove('rv-pending'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    $$('.rv').forEach(function (el) {
+      if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('rv-pending'); io.observe(el); }
+    });
+  }
+})();
+</script>
+
+</body></html>
